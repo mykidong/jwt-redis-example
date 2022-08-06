@@ -3,21 +3,117 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.cloudcheflabs.dataroaster</groupId>
-    <artifactId>dataroaster-parent</artifactId>
-    <version>4.8.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <name>DataRoaster: Parent</name>
-    <modules>
-        <module>common</module>
-         <module>components/hive/spark-thrift-server</module>
-        <module>operators/dataroaster/dataroaster-operator</module>
-        <module>operators/helm/helm-operator</module>
-        <module>operators/spark/spark-operator</module>
-        <module>operators/trino/trino-operator</module>
-        <module>trino-ecosystem/trino-controller</module>
-        <module>trino-ecosystem/trino-gateway</module>
-    </modules>
+    <groupId>io.mykidong</groupId>
+    <artifactId>jwt-redis-example</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>JWT / Redis Example</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!-- testing -->
+        <junit.version>4.12</junit.version>
+
+        <!-- jackson -->
+        <jackson.version>2.11.2</jackson.version>
+
+        <!-- favre bcrypt -->
+        <favre-bcrypt.version>0.8.0</favre-bcrypt.version>
+
+        <!-- jedis -->
+        <jedis.version>4.2.0</jedis.version>
+
+        <!-- kryo -->
+        <kryo.version>5.3.0</kryo.version>
+
+        <!-- java.xml.bind module -->
+        <xml-bind.version>2.3.2</xml-bind.version>
+
+        <!-- joda time -->
+        <joda-time.version>2.10.6</joda-time.version>
+
+        <spring-boot.version>2.7.2</spring-boot.version>
+
+        <jjwt.version>0.9.1</jjwt.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>at.favre.lib</groupId>
+            <artifactId>bcrypt</artifactId>
+            <version>${favre-bcrypt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>${jedis.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.esotericsoftware</groupId>
+            <artifactId>kryo</artifactId>
+            <version>${kryo.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>${jjwt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>${xml-bind.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+            <version>${xml-bind.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>${joda-time.version}</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <pluginManagement>
             <plugins>
@@ -38,9 +134,9 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.3</version>
                 <configuration>
-                    <source>11</source>
-                    <target>11</target>
-                    <compilerVersion>11</compilerVersion>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <compilerVersion>1.8</compilerVersion>
                     <encoding>utf-8</encoding>
                 </configuration>
             </plugin>
