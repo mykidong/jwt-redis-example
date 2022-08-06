@@ -37,5 +37,11 @@ public class CacheDaoTestRunner {
         Assert.assertNotNull(retJwtToken);
         Assert.assertTrue(retJwtToken.getToken().equals(token));
         Assert.assertTrue(retJwtToken.getUserName().equals(userName));
+
+        // delete token in redis.
+        jwtTokenCacheDao.delete(token);
+
+        retJwtToken = jwtTokenCacheDao.get(token, JwtToken.class);
+        Assert.assertNull(retJwtToken);
     }
 }

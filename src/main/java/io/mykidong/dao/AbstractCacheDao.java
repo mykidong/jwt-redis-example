@@ -36,6 +36,13 @@ public abstract class AbstractCacheDao<T> implements CacheDao<T> {
         }
     }
 
+    @Override
+    public void delete(String id) {
+        jedis.del(id.getBytes());
+    }
+
+
+
 
     private static <T> byte[]  serialize(T t) {
         ByteArrayOutputStream os = new ByteArrayOutputStream();

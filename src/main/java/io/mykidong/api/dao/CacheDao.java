@@ -4,4 +4,5 @@ public interface CacheDao<T> {
 
     void set(String id, T t);
     T get(String id, Class<T> clazz);
+    void delete(String id);
 }
